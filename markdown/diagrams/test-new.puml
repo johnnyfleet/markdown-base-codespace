@@ -1,0 +1,13 @@
+@startuml
+start
+repeat :Coding Feature;
+    :Check-in;
+    :Build package;
+    :Scan;
+backward: Fail build - notify;
+repeat while (Critical or High vulnerabilities?) is (yes)
+
+:Code merged to main;
+stop
+
+@enduml

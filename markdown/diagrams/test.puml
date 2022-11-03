@@ -1,7 +1,16 @@
 @startuml
 
-(*) --> "First Action"
--->[You can put also labels] "Second Action"
+(*) --> "Coding Feature"
+--> "Check-in"
+--> "Build package"
+--> "Scan"
+if "Critical or High vulnerabilities?" then
+    --> [yes] "Fail build - notify"
+else
+    --> [no] "Build succeeded"
+endif
+
+--> "Code merged to main"
 --> (*)
 
 @enduml
